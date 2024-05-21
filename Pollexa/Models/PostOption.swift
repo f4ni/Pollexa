@@ -7,39 +7,38 @@
 
 import UIKit
 
-extension Post {
+
+struct Option: Decodable {
     
-    struct Option: Decodable {
+    // MARK: - Types
+    enum CodingKeys: String, CodingKey {
+        case id
+        case imageName
+    }
+    
+    // MARK: - Properties
+    let id: String
+    let image: UIImage
+    var selected: Bool = false
+    
+    // MARK: - Life Cycle
+    init(from decoder: any Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
         
-        // MARK: - Types
-        enum CodingKeys: String, CodingKey {
-            case id
-            case imageName
-        }
+        id = try container.decode(String.self, forKey: .id)
         
-        // MARK: - Properties
-        let id: String
-        let image: UIImage
+        let imageName = try container.decode(
+            String.self,
+            forKey: .imageName
+        )
         
-        // MARK: - Life Cycle
-        init(from decoder: any Decoder) throws {
-            let container = try decoder.container(keyedBy: CodingKeys.self)
-            
-            id = try container.decode(String.self, forKey: .id)
-            
-            let imageName = try container.decode(
-                String.self,
-                forKey: .imageName
+        if let image = UIImage(named: imageName) {
+            self.image = image
+        } else {
+            throw DecodingError.dataCorrupted(.init(
+                codingPath: [CodingKeys.imageName],
+                debugDescription: "An image with name \(imageName) could not be loaded from the bundle.")
             )
-            
-            if let image = UIImage(named: imageName) {
-                self.image = image
-            } else {
-                throw DecodingError.dataCorrupted(.init(
-                    codingPath: [CodingKeys.imageName],
-                    debugDescription: "An image with name \(imageName) could not be loaded from the bundle.")
-                )
-            }
         }
     }
 }

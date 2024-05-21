@@ -10,20 +10,101 @@ import UIKit
 class DiscoverViewController: UIViewController {
 
     // MARK: - Properties
-    private let postProvider = PostProvider.shared
-
+    
+    let viewModel: ViewModel
+    
+    @IBOutlet weak var tableView: UITableView!
+    
+    init(viewModel: ViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder aCoder: NSCoder) {
+        self.viewModel = ViewModel()
+        super.init(coder: aCoder)
+    }
+    
     // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        postProvider.fetchAll { result in
-            switch result {
-            case .success(let posts):
-                print(posts)
-                
-            case .failure(let error):
-                debugPrint(error.localizedDescription)
-            }
+        setNavigationBar()
+        setTableView()
+        viewModel.delegate = self
+        viewModel.retrievePosts()
+    }
+    
+    func setNavigationBar() {
+        
+        let profileButton = UIButton(type: .custom)
+        profileButton.frame = CGRect(origin: .zero, size: CGSize(width: 34, height: 34)) // Adjust size as needed
+        profileButton.layer.cornerRadius = profileButton.frame.height / 2// Half of the button's height for a circular shape
+        profileButton.clipsToBounds = true
+        
+        let imageView = UIImageView(image: UIImage(named: "avatar_1.png"))
+        imageView.frame = profileButton.bounds
+        imageView.contentMode = .scaleAspectFit
+        imageView.layer.cornerRadius = profileButton.layer.cornerRadius
+        imageView.clipsToBounds = true
+        
+        profileButton.addSubview(imageView)
+
+        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: profileButton)
+        navigationItem.title = "Pollexa"
+        
+        
+//        let plusButton = UIButton(type: .)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(systemItem: .add)
+    }
+    
+    func setTableView() {
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.register(
+            UINib(nibName: PostTableViewCell.nameOfClass, bundle: nil),
+            forCellReuseIdentifier: PostTableViewCell.nameOfClass
+        )
+    }
+    
+    func setTableViewHeader() {
+        let headerView = DiscoverHeader(postCount: viewModel.posts?.count ?? 0)
+        
+        headerView.frame = CGRect(origin: .zero, size: CGSize(width: view.frame.width, height: 128))
+        tableView.tableHeaderView = headerView
+    }
+}
+
+extension DiscoverViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        viewModel.posts?.count ?? 0
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(
+            withIdentifier: PostTableViewCell.nameOfClass,
+            for: indexPath
+        ) as? PostTableViewCell
+        else {
+            return  UITableViewCell()
         }
+        if let post = viewModel.posts?[indexPath.item] {
+            cell.set(post)
+            cell.delegate = self
+        }
+        return cell
+    }
+}
+
+extension DiscoverViewController: ViewModelDelegate {
+    func updateList() {
+        tableView.reloadData()
+        setTableViewHeader()
+    }
+}
+
+extension DiscoverViewController: PostTableViewCellDelegate {
+    func optionSelected(optionIdx: Int, postId: String) {
+        viewModel.updatePoll(postId: postId, optionIdx: optionIdx)
     }
 }
