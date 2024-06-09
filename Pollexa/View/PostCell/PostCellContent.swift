@@ -2,7 +2,7 @@
 //  PostCellContent.swift
 //  Pollexa
 //
-//  Created by Furkan ic on 8.06.2024.
+//  Created by Furkan icoz on 8.06.2024.
 //
 
 import UIKit

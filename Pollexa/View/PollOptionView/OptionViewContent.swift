@@ -2,7 +2,7 @@
 //  OptionViewContent.swift
 //  Pollexa
 //
-//  Created by Furkan ic on 9.06.2024.
+//  Created by furkan icoz on 9.06.2024.
 //
 
 import UIKit
