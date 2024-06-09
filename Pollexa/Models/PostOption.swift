@@ -14,12 +14,14 @@ struct Option: Decodable {
     enum CodingKeys: String, CodingKey {
         case id
         case imageName
+        case voteCount
     }
     
     // MARK: - Properties
     let id: String
     let image: UIImage
     var selected: Bool = false
+    var voteCount: Int
     
     // MARK: - Life Cycle
     init(from decoder: any Decoder) throws {
@@ -27,10 +29,9 @@ struct Option: Decodable {
         
         id = try container.decode(String.self, forKey: .id)
         
-        let imageName = try container.decode(
-            String.self,
-            forKey: .imageName
-        )
+        voteCount = try container.decode(Int.self, forKey: .voteCount)
+        
+        let imageName = try container.decode(String.self, forKey: .imageName)
         
         if let image = UIImage(named: imageName) {
             self.image = image

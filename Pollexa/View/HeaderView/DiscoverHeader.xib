@@ -14,22 +14,19 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" restorationIdentifier="DiscoverHeader" translatesAutoresizingMaskIntoConstraints="NO" id="iN0-l3-epB">
-            <rect key="frame" x="0.0" y="0.0" width="397" height="128"/>
+            <rect key="frame" x="0.0" y="0.0" width="397" height="121"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bap-Bm-oZI" userLabel="contentView" customClass="HeaderView">
-                    <rect key="frame" x="18" y="18" width="361" height="92"/>
+                    <rect key="frame" x="18" y="18" width="361" height="85"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 Active Poll" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fQH-Rd-ALD">
-                            <rect key="frame" x="19.999999999999993" y="18" width="118.33333333333331" height="24"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="24" id="Yx1-Li-Ccr"/>
-                            </constraints>
+                            <rect key="frame" x="19.999999999999993" y="18" width="118.33333333333331" height="29"/>
                             <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="20"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="See Details" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ozI-u8-ZYM">
-                            <rect key="frame" x="20" y="42" width="82" height="20"/>
+                            <rect key="frame" x="20" y="47" width="82" height="20"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="20" id="r6S-IP-thx"/>
                             </constraints>
@@ -38,7 +35,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="arrow.right.square.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="xRz-ry-EqN">
-                            <rect key="frame" x="312" y="31.333333333333325" width="33" height="30.000000000000018"/>
+                            <rect key="frame" x="312" y="27.666666666666664" width="33" height="30.000000000000007"/>
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="33" id="HUy-uJ-57y"/>
@@ -74,7 +71,7 @@
                 <constraint firstItem="bap-Bm-oZI" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="18" id="xhq-g0-7xf"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="35.877862595419849" y="-235.21126760563382"/>
+            <point key="canvasLocation" x="35.877862595419849" y="-237.67605633802819"/>
         </view>
     </objects>
     <resources>

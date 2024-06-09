@@ -21,4 +21,8 @@ extension UIImage {
     class var placeHolder: UIImage {
         UIImage(systemName: "photo")!
     }
+    
+    class var avatar: UIImage {
+        UIImage(named: "avatar_1.png")!
+    }
 }

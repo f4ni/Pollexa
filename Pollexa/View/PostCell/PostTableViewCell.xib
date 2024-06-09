@@ -24,8 +24,8 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q5b-WX-Fiz">
                                 <rect key="frame" x="8" y="16" width="264" height="32"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C3Y-mN-3X5">
-                                        <rect key="frame" x="54" y="16" width="107" height="0.0"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C3Y-mN-3X5">
+                                        <rect key="frame" x="54" y="16" width="0.0" height="0.0"/>
                                         <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -42,8 +42,8 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aYy-3c-esQ">
-                                        <rect key="frame" x="218.33333333333331" y="16" width="37.666666666666657" height="0.0"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aYy-3c-esQ">
+                                        <rect key="frame" x="256" y="16" width="0.0" height="0.0"/>
                                         <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="15"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -56,7 +56,7 @@
                                     <constraint firstItem="JuQ-uv-f4a" firstAttribute="centerY" secondItem="Q5b-WX-Fiz" secondAttribute="centerY" id="Tk7-O1-jTZ"/>
                                     <constraint firstItem="JuQ-uv-f4a" firstAttribute="leading" secondItem="Q5b-WX-Fiz" secondAttribute="leading" constant="12" id="ViU-XE-pSo"/>
                                     <constraint firstItem="C3Y-mN-3X5" firstAttribute="centerY" secondItem="Q5b-WX-Fiz" secondAttribute="centerY" id="aKQ-yl-oUV"/>
-                                    <constraint firstItem="aYy-3c-esQ" firstAttribute="leading" secondItem="C3Y-mN-3X5" secondAttribute="trailing" constant="8" id="cIk-wD-HJj"/>
+                                    <constraint firstItem="aYy-3c-esQ" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="C3Y-mN-3X5" secondAttribute="trailing" constant="8" id="cIk-wD-HJj"/>
                                     <constraint firstItem="C3Y-mN-3X5" firstAttribute="leading" secondItem="JuQ-uv-f4a" secondAttribute="trailing" constant="10" id="haY-yr-UPm"/>
                                     <constraint firstAttribute="height" constant="32" id="ifD-fN-3bS"/>
                                 </constraints>
@@ -83,60 +83,13 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="mdM-uL-ozg">
                                                 <rect key="frame" x="0.0" y="0.0" width="248" height="128"/>
                                                 <subviews>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9tk-hc-fPy">
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9tk-hc-fPy" customClass="PollOptionView" customModule="Pollexa" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="122" height="128"/>
-                                                        <subviews>
-                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7Fr-zd-7z3">
-                                                                <rect key="frame" x="0.0" y="0.0" width="122" height="128"/>
-                                                            </imageView>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tGg-LG-oNf">
-                                                                <rect key="frame" x="0.0" y="0.0" width="122" height="128"/>
-                                                                <color key="tintColor" red="0.34307026860000001" green="0.33847254510000002" blue="0.83845716709999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                <inset key="contentEdgeInsets" minX="8" minY="0.0" maxX="0.0" maxY="8"/>
-                                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                                <connections>
-                                                                    <action selector="firsButtonSelected:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="v35-nS-KhU"/>
-                                                                </connections>
-                                                            </button>
-                                                        </subviews>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="trailing" secondItem="tGg-LG-oNf" secondAttribute="trailing" id="3Hp-pB-BZU"/>
-                                                            <constraint firstItem="tGg-LG-oNf" firstAttribute="leading" secondItem="9tk-hc-fPy" secondAttribute="leading" id="5rU-ka-ItC"/>
-                                                            <constraint firstAttribute="bottom" secondItem="tGg-LG-oNf" secondAttribute="bottom" id="6bU-co-RY0"/>
-                                                            <constraint firstItem="7Fr-zd-7z3" firstAttribute="top" secondItem="9tk-hc-fPy" secondAttribute="top" id="88H-NZ-m4o"/>
-                                                            <constraint firstItem="tGg-LG-oNf" firstAttribute="top" secondItem="9tk-hc-fPy" secondAttribute="top" id="G8q-LW-rIb"/>
-                                                            <constraint firstAttribute="bottom" secondItem="7Fr-zd-7z3" secondAttribute="bottom" id="Hc9-zC-mKu"/>
-                                                            <constraint firstItem="7Fr-zd-7z3" firstAttribute="leading" secondItem="9tk-hc-fPy" secondAttribute="leading" id="Yqa-oy-q51"/>
-                                                            <constraint firstAttribute="trailing" secondItem="7Fr-zd-7z3" secondAttribute="trailing" id="w17-e6-RZr"/>
-                                                        </constraints>
                                                     </view>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bUR-Y9-utb">
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bUR-Y9-utb" customClass="PollOptionView" customModule="Pollexa" customModuleProvider="target">
                                                         <rect key="frame" x="126" y="0.0" width="122" height="128"/>
-                                                        <subviews>
-                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="R8L-Lg-kAs">
-                                                                <rect key="frame" x="0.0" y="0.0" width="122" height="128"/>
-                                                            </imageView>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="bottom" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4ug-TZ-aaZ">
-                                                                <rect key="frame" x="0.0" y="0.0" width="122" height="128"/>
-                                                                <inset key="contentEdgeInsets" minX="8" minY="0.0" maxX="0.0" maxY="8"/>
-                                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                                <connections>
-                                                                    <action selector="secondButtonSelected:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="xxz-Ge-Ffn"/>
-                                                                </connections>
-                                                            </button>
-                                                        </subviews>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                        <constraints>
-                                                            <constraint firstItem="R8L-Lg-kAs" firstAttribute="top" secondItem="bUR-Y9-utb" secondAttribute="top" id="8E7-91-85S"/>
-                                                            <constraint firstAttribute="bottom" secondItem="R8L-Lg-kAs" secondAttribute="bottom" id="KMB-Qd-csa"/>
-                                                            <constraint firstAttribute="trailing" secondItem="R8L-Lg-kAs" secondAttribute="trailing" id="VjF-pb-HfD"/>
-                                                            <constraint firstAttribute="trailing" secondItem="4ug-TZ-aaZ" secondAttribute="trailing" id="ZSF-mm-E9Y"/>
-                                                            <constraint firstItem="4ug-TZ-aaZ" firstAttribute="top" secondItem="bUR-Y9-utb" secondAttribute="top" id="as2-Dr-IGe"/>
-                                                            <constraint firstAttribute="bottom" secondItem="4ug-TZ-aaZ" secondAttribute="bottom" id="buB-92-0Ph"/>
-                                                            <constraint firstItem="4ug-TZ-aaZ" firstAttribute="leading" secondItem="bUR-Y9-utb" secondAttribute="leading" id="kQx-5K-5lR"/>
-                                                            <constraint firstItem="R8L-Lg-kAs" firstAttribute="leading" secondItem="bUR-Y9-utb" secondAttribute="leading" id="nw1-dc-ug6"/>
-                                                        </constraints>
                                                     </view>
                                                 </subviews>
                                             </stackView>
@@ -218,11 +171,10 @@
             </constraints>
             <connections>
                 <outlet property="createDateLabel" destination="aYy-3c-esQ" id="ph2-D4-fhK"/>
-                <outlet property="firstButton" destination="tGg-LG-oNf" id="Iwn-4l-Luu"/>
-                <outlet property="firstImageView" destination="7Fr-zd-7z3" id="o9N-X1-TRo"/>
+                <outlet property="firstOptionView" destination="9tk-hc-fPy" id="CuY-eY-lS4"/>
                 <outlet property="pollContentLabel" destination="dPq-1X-EP5" id="olN-jb-1ZC"/>
-                <outlet property="secondButton" destination="4ug-TZ-aaZ" id="Eja-mY-VqS"/>
-                <outlet property="secondImageView" destination="R8L-Lg-kAs" id="mOm-5k-xLe"/>
+                <outlet property="secondOptionView" destination="bUR-Y9-utb" id="RHt-mZ-3ow"/>
+                <outlet property="totalVoteCountLabel" destination="jTC-ex-0pZ" id="RyQ-WN-g7k"/>
                 <outlet property="userImageView" destination="JuQ-uv-f4a" id="gJM-IX-lMR"/>
                 <outlet property="userNameLabel" destination="C3Y-mN-3X5" id="kDz-qX-mYm"/>
             </connections>

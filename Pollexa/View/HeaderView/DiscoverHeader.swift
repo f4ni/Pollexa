@@ -26,17 +26,4 @@ class DiscoverHeader: UIView {
         super.init(coder: aCoder)
         loadView()
     }
-    
-    func loadView() {
-        let view = loadFromNib()
-        view.frame = self.bounds
-        self.addSubview(view)
-        view.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            view.topAnchor.constraint(equalTo: self.topAnchor),
-            view.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            view.bottomAnchor.constraint(equalTo: self.bottomAnchor),
-            view.trailingAnchor.constraint(equalTo: self.trailingAnchor)
-        ])
-    }
 }

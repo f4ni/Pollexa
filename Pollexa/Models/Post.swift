@@ -11,7 +11,7 @@ struct Post: Decodable {
     
     // MARK: - Properties
     let id: String?
-    let createdAt: String?
+    let createdAt: Date?
     let content: String?
     var options: [Option]?
     let user: User?
@@ -36,8 +36,6 @@ struct Post: Decodable {
             decoder.dateDecodingStrategy = .iso8601
             date = try container.decode(Date.self, forKey: .createdAt)
         }
-        let formatter = DateFormatter()
-        formatter.dateStyle = .short
-        self.createdAt = formatter.string(from: date)
+        self.createdAt = date
     }
 }

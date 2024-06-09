@@ -42,7 +42,7 @@ class DiscoverViewController: UIViewController {
         profileButton.layer.cornerRadius = profileButton.frame.height / 2// Half of the button's height for a circular shape
         profileButton.clipsToBounds = true
         
-        let imageView = UIImageView(image: UIImage(named: "avatar_1.png"))
+        let imageView = UIImageView(image: .avatar)
         imageView.frame = profileButton.bounds
         imageView.contentMode = .scaleAspectFit
         imageView.layer.cornerRadius = profileButton.layer.cornerRadius
@@ -52,9 +52,6 @@ class DiscoverViewController: UIViewController {
 
         navigationItem.leftBarButtonItem = UIBarButtonItem(customView: profileButton)
         navigationItem.title = "Pollexa"
-        
-        
-//        let plusButton = UIButton(type: .)
         navigationItem.rightBarButtonItem = UIBarButtonItem(systemItem: .add)
     }
     
@@ -68,8 +65,7 @@ class DiscoverViewController: UIViewController {
     }
     
     func setTableViewHeader() {
-        let headerView = DiscoverHeader(postCount: viewModel.posts?.count ?? 0)
-        
+        let headerView = DiscoverHeader(postCount: viewModel.getPostCount())
         headerView.frame = CGRect(origin: .zero, size: CGSize(width: view.frame.width, height: 128))
         tableView.tableHeaderView = headerView
     }
@@ -77,7 +73,7 @@ class DiscoverViewController: UIViewController {
 
 extension DiscoverViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        viewModel.posts?.count ?? 0
+        viewModel.getPostCount()
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -88,10 +84,12 @@ extension DiscoverViewController: UITableViewDelegate, UITableViewDataSource {
         else {
             return  UITableViewCell()
         }
-        if let post = viewModel.posts?[indexPath.item] {
+        
+        if let post = viewModel.postConents?[indexPath.item] {
             cell.set(post)
             cell.delegate = self
         }
+        
         return cell
     }
 }
@@ -104,7 +102,7 @@ extension DiscoverViewController: ViewModelDelegate {
 }
 
 extension DiscoverViewController: PostTableViewCellDelegate {
-    func optionSelected(optionIdx: Int, postId: String) {
-        viewModel.updatePoll(postId: postId, optionIdx: optionIdx)
+    func optionSelected(optionId: String, postId: String) {
+        viewModel.updatePoll(postId: postId, optionId: optionId)
     }
 }
